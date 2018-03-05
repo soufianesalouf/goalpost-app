@@ -72,7 +72,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="esz-pN-ivg">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="esz-pN-ivg">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUE-hd-dyS" id="E4z-fE-Uor">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a3K-9t-9Eg">
@@ -129,7 +129,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="DB1-nQ-BEc">
-                                                    <rect key="frame" x="327" y="8" width="40" height="53"/>
+                                                    <rect key="frame" x="327" y="8" width="40" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="7mC-e8-Zqc"/>
                                                     </constraints>
@@ -137,18 +137,39 @@
                                                     <color key="textColor" red="0.42745098039215684" green="0.73725490196078436" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVg-Ya-oQz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL COMPLETE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCv-nX-zzD">
+                                                            <rect key="frame" x="56.5" y="15" width="262.5" height="41"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="30"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.96470588239999999" green="0.65098039220000004" blue="0.13725490200000001" alpha="0.80155714897260277" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="VCv-nX-zzD" firstAttribute="centerX" secondItem="SVg-Ya-oQz" secondAttribute="centerX" id="NgT-y1-jsW"/>
+                                                        <constraint firstItem="VCv-nX-zzD" firstAttribute="centerY" secondItem="SVg-Ya-oQz" secondAttribute="centerY" id="fUE-9D-ono"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="DB1-nQ-BEc" secondAttribute="trailing" constant="8" id="4DB-h6-KvX"/>
+                                                <constraint firstItem="SVg-Ya-oQz" firstAttribute="leading" secondItem="E4z-fE-Uor" secondAttribute="leading" id="4Vh-j1-SlV"/>
                                                 <constraint firstAttribute="bottom" secondItem="DB1-nQ-BEc" secondAttribute="bottom" constant="8" id="7wO-Pn-Xd9"/>
                                                 <constraint firstItem="a3K-9t-9Eg" firstAttribute="leading" secondItem="E4z-fE-Uor" secondAttribute="leading" constant="10" id="Cg0-bQ-qrT"/>
+                                                <constraint firstAttribute="bottom" secondItem="SVg-Ya-oQz" secondAttribute="bottom" id="CmY-Ke-D92"/>
+                                                <constraint firstAttribute="trailing" secondItem="SVg-Ya-oQz" secondAttribute="trailing" id="MQh-JQ-ePa"/>
                                                 <constraint firstItem="a3K-9t-9Eg" firstAttribute="top" secondItem="E4z-fE-Uor" secondAttribute="top" constant="8" id="b5m-RG-3IK"/>
                                                 <constraint firstItem="DB1-nQ-BEc" firstAttribute="leading" secondItem="a3K-9t-9Eg" secondAttribute="trailing" constant="10" id="c0I-DI-HqM"/>
                                                 <constraint firstItem="DB1-nQ-BEc" firstAttribute="top" secondItem="E4z-fE-Uor" secondAttribute="top" constant="8" id="dH9-Fa-yDT"/>
+                                                <constraint firstItem="SVg-Ya-oQz" firstAttribute="top" secondItem="E4z-fE-Uor" secondAttribute="top" id="iVu-E2-dor"/>
                                                 <constraint firstAttribute="bottom" secondItem="a3K-9t-9Eg" secondAttribute="bottom" constant="8" id="sRP-Tv-XvM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="completionView" destination="SVg-Ya-oQz" id="2uG-1q-HrV"/>
                                             <outlet property="goalDescriptionLbl" destination="mIG-yp-J1J" id="fRB-8d-E4K"/>
                                             <outlet property="goalProgressLbl" destination="DB1-nQ-BEc" id="5Xr-G6-1ww"/>
                                             <outlet property="goalTypeLbl" destination="wvH-i4-teI" id="ac8-tz-OgL"/>

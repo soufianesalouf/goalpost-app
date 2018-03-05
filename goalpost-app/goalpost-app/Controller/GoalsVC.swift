@@ -83,18 +83,40 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         
-        return [deleteAction]
+        let addAction = UITableViewRowAction(style: .normal, title: "ADD 1") { (rowAction, indexPath) in
+            self.setProgress(atIndexPath: indexPath)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        addAction.backgroundColor = #colorLiteral(red: 0.9771530032, green: 0.7062081099, blue: 0.1748393774, alpha: 1)
+        
+        return [deleteAction, addAction]
     }
 }
 
 extension GoalsVC {
+    
+    func setProgress(atIndexPath indexPath: IndexPath){
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let chosenGoal = goals[indexPath.row]
+        if chosenGoal.goalProgress < chosenGoal.goalCompletionValue {
+            chosenGoal.goalProgress = chosenGoal.goalProgress + 1
+        } else {
+            return
+        }
+        
+        do{
+            try managedContext.save()
+        } catch {
+            debugPrint("Could Not set Progress : \(error.localizedDescription)")
+        }
+    }
+    
     func fetch(completion: (_ complete: Bool) -> ()){
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
         let fetchRequest = NSFetchRequest<Goal>(entityName: "Goal")
         do {
            goals =  try managedContext.fetch(fetchRequest)
-            print("Fetch success")
             completion(true)
         } catch {
             debugPrint("Could Not Fetch : \(error.localizedDescription)")
@@ -108,7 +130,6 @@ extension GoalsVC {
         managedContext.delete(goals[indexPath.row])
         do {
             try managedContext.save()
-            print("success remove Goal")
         } catch {
             debugPrint("Could Not Fetch : \(error.localizedDescription)")
         }
